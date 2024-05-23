@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HouseProfitCalculator.Receipt">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAIAAAAAAAAAAAAAAAQAAAQAAAAQ=</HashCode>
+      <FileName>Receipt.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ReceiptManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="HouseProfitCalculator.ReceiptManager">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>ReceiptManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HouseProfitCalculator.House">
+    <Position X="6.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAgAAAEAABAAAQCAAgAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>House.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HouseProfitCalculator.HouseManager">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAACBAAAAAAANAAIACAAA=</HashCode>
+      <FileName>HouseManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Calculator" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="HouseProfitCalculator.Calculator">
+    <Position X="6.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAABgAAAAACAAAAA=</HashCode>
+      <FileName>Calculator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="HouseProfitCalculator.Type" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAgAAAQAAAAwAAAAAAAAAACCAAAAAAQAAIAAA=</HashCode>
+      <FileName>Type.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

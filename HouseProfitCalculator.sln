@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseProfitCalculator", "HouseProfitCalculator.csproj", "{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14335759-2EF1-4D6F-B702-3031A5094B78}
+	EndGlobalSection
+EndGlobal
