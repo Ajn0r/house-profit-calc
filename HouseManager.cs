@@ -55,5 +55,9 @@ namespace HouseProfitCalculator
                 LatestHouse = house;
             }
         }
+        public int GetIndexOfHouse(House house)
+        {
+            return houses.IndexOf(house);
+        }
     }
 }

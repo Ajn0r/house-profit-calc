@@ -93,7 +93,7 @@ namespace HouseProfitCalculator {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/HouseProfitCalculator;V1.0.0.0;component/newhousewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/HouseProfitCalculator;component/newhousewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\NewHouseWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

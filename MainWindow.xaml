@@ -61,7 +61,7 @@
                 <StackPanel Grid.Row="0" Orientation="Vertical">
                     <TextBlock Text="House details" FontWeight="Bold" FontSize="16" Padding="3"/>
                     <StackPanel Orientation="Horizontal">
-                        <ComboBox Width="200" Padding="3"/>
+                        <ComboBox Width="200" Padding="3" Name="cmbHouses" SelectionChanged="HouseComboBoxChanged"/>
                         <!-- Since the add button only has a + sign, I added a ToolTip for when the user hovers over the button, as well as helptext for accesibility -->
                         <Button Content="+" Width="25" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="3" AutomationProperties.HelpText="Add new house" ToolTip="Add new house" Click="AddNewHouse_Clicked"/>
                     </StackPanel>
