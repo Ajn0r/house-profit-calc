@@ -17,10 +17,44 @@ namespace HouseProfitCalculator
     public partial class MainWindow : Window
     {
         private HouseManager houseManager;
+        // A list to store any errors that occurs
+        private List<string> errorList = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
             houseManager = new HouseManager();
+            TestData();
+        }
+
+        private void TestData()
+        {
+            House house1 = new House();
+            house1.Name = "Laxå";
+            house1.Address = "Magnus Erikssons väg 4";
+            house1.PurchasePrice = 475000;
+            house1.AskingPrice = 950000;
+            house1.ClosingCost = 60500;
+
+            House house2 = new House();
+            house2.Name = "Torved";
+            house2.Address = "Torveds gård 4";
+            house2.PurchasePrice = 830000;
+            house2.AskingPrice = 2450000;
+            house2.ClosingCost = 75000;
+
+            House house3 = new House();
+            house3.Name = "Hösbjör";
+            house3.Address = "Hösbjörsvägen 213";
+            house3.PurchasePrice = 1750000;
+            house3.AskingPrice = 2730000;
+            house3.ClosingCost = 56000;
+
+            houseManager.AddHouse(house1);
+            houseManager.AddHouse(house2);
+            houseManager.AddHouse(house3);
+
+            FillHouseComboBox();
+            SetHouseInComboBox(house1);
         }
 
         public void UpdateGUI(House selectedHouse)
@@ -104,6 +138,24 @@ namespace HouseProfitCalculator
             // Set the datacontext of the window to the selected house and update the GUI with the selected house
             this.DataContext = selectedHouse;
             SetHouseInComboBox(selectedHouse);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (cmbHouses.SelectedIndex == -1)
+            {
+                return;
+            }
+            House selectedHouse = houseManager.Houses[cmbHouses.SelectedIndex];
+            EditHouseWindow editHouseWindow = new EditHouseWindow(houseManager, selectedHouse);
+            editHouseWindow.Closed += EditHouseWindow_Closed;
+            editHouseWindow.Show();
+        }
+        public void EditHouseWindow_Closed(object sender, System.EventArgs e)
+        {
+            House selectedHouse = houseManager.Houses[cmbHouses.SelectedIndex];
+            this.DataContext = selectedHouse;
+            UpdateGUI(selectedHouse);
         }
     }
 }

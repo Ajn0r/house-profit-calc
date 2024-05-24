@@ -1,0 +1,51 @@
+﻿<Window x:Class="HouseProfitCalculator.EditHouseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HouseProfitCalculator"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        Title="Edit a house" >
+    <DockPanel LastChildFill="True" Margin="15">
+        <TextBlock DockPanel.Dock="Top" Text="Enter the details of the house" FontWeight="Bold" FontSize="16" Margin="10"/>
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Name of the house -->
+        <Label Grid.Row="0" Grid.Column="0" Content="House name:" FontWeight="Bold" Padding="3" Margin="5"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Name="txtName" Padding="3" Width="250" Margin="0 5" Text="{Binding Name, Mode=OneWay}"/>
+        
+        <!-- Adress -->
+        <Label Grid.Row="1" Grid.Column="0" Content="Address:" FontWeight="Bold" Padding="3" Margin="5"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="txtAddress" Padding="3" Margin="0 5" Text="{Binding Address, Mode=OneWay}"/>
+
+        <!-- Purchase price -->
+        <Label Grid.Row="2" Grid.Column="0" Content="Purchase price:" FontWeight="Bold" Padding="3" Margin="5"/>
+            <TextBox  Grid.Row="2" Grid.Column="1" Name="txtPurchasePrice" Text="{Binding PurchasePrice, Mode=OneWay}" Padding="3" ToolTip="Enter the price for which you bought the house for" Margin="0 5"/>
+        
+        <!-- Asking price -->
+        <Label Grid.Row="3" Grid.Column="0" Content="Asking price:" FontWeight="Bold" Padding="3" Margin="5"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="txtAskingPrice" Text="{Binding AskingPrice, Mode=OneWay}" ToolTip="Enter the price you are selling the house for" Padding="3" Margin="0 5"/>
+
+        <!-- Closing cost -->
+        <Label Content="Closing cost:" Grid.Column="0" Grid.Row="4"  FontWeight="Bold" Padding="3" Margin="5"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Name="txtClosingCost" Padding="3" Margin="0 5" Text="{Binding ClosingCost, Mode=OneWay}"/>
+        
+        <!-- Edit house btn -->
+            <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Update house" Click="UpdateHouseBtn_Click" Padding="5" Margin="0 5"/>
+        </Grid>
+    </DockPanel>
+</Window>

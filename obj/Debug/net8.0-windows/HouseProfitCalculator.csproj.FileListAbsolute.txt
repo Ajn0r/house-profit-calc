@@ -21,3 +21,5 @@ C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\obj\Debug\
 C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\obj\Debug\net8.0-windows\NewHouseWindow.g.cs
 C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\obj\Debug\net8.0-windows\NewHouseWindow.baml
 C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\obj\Debug\net8.0-windows\HouseProfitCalculator.sourcelink.json
+C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\obj\Debug\net8.0-windows\EditHouseWindow.g.cs
+C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\obj\Debug\net8.0-windows\EditHouseWindow.baml
