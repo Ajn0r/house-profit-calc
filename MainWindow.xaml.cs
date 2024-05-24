@@ -157,5 +157,12 @@ namespace HouseProfitCalculator
             this.DataContext = selectedHouse;
             UpdateGUI(selectedHouse);
         }
+
+        private void AddNewReceipt_Clicked(object sender, RoutedEventArgs e)
+        {
+            NewReceiptWindow newReceiptWindow = new NewReceiptWindow();
+            newReceiptWindow.Show();
+
+        }
     }
 }
