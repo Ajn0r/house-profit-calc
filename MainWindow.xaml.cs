@@ -17,12 +17,16 @@ namespace HouseProfitCalculator
     public partial class MainWindow : Window
     {
         private HouseManager houseManager;
-        // A list to store any errors that occurs
-        private List<string> errorList = new List<string>();
+
+        private CategoryManager categoryManager;
+        private ReceiptManager receiptManager;
+
         public MainWindow()
         {
             InitializeComponent();
             houseManager = new HouseManager();
+            receiptManager = new ReceiptManager();
+            categoryManager = new CategoryManager();
             TestData();
         }
 
@@ -160,9 +164,18 @@ namespace HouseProfitCalculator
 
         private void AddNewReceipt_Clicked(object sender, RoutedEventArgs e)
         {
-            NewReceiptWindow newReceiptWindow = new NewReceiptWindow();
+            NewReceiptWindow newReceiptWindow = new NewReceiptWindow(categoryManager, receiptManager);
+            newReceiptWindow.Closed += NewReceiptWindow_Closed;
             newReceiptWindow.Show();
+        }
 
+        private void NewReceiptWindow_Closed(object? sender, EventArgs e)
+        {
+            lstReceipts.Items.Clear();
+            foreach (Receipt receipt in receiptManager.Receipts)
+            {
+                lstReceipts.Items.Add(receipt);
+            }
         }
     }
 }

@@ -1,15 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="HouseProfitCalculator.Receipt">
-    <Position X="12.75" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAIAAAAAAAAAAAAAAAQAAAQAAAAQ=</HashCode>
-      <FileName>Receipt.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ReceiptManager" />
-    </ShowAsAssociation>
-  </Class>
   <Class Name="HouseProfitCalculator.ReceiptManager">
     <Position X="10" Y="3.75" Width="1.5" />
     <TypeIdentifier>
@@ -20,14 +10,15 @@
   <Class Name="HouseProfitCalculator.House">
     <Position X="6.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAgAAAEAABAAAQCAAgAAAAAAAAAAAABAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAgAEAEIBJAAAQSgAIEAAACAAAAAAABAAA=</HashCode>
       <FileName>House.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="HouseProfitCalculator.HouseManager">
     <Position X="3.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAACBAAAAAAANAAIACAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAACBAAAAABANAAIACAAA=</HashCode>
       <FileName>HouseManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -41,10 +32,18 @@
       <FileName>Calculator.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="HouseProfitCalculator.Receipt">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAIIAAAAKAgAACgAABAAAAAQAAAAA=</HashCode>
+      <FileName>Receipt.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Enum Name="HouseProfitCalculator.Type" Collapsed="true">
     <Position X="12.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAgAAAQAAAAwAAAAAAAAAACCAAAAAAQAAIAAA=</HashCode>
+      <HashCode>gAAAAAAAgAAAQAAAAwAAAAAAAAAAACAAAAAAQAAIAAA=</HashCode>
       <FileName>Type.cs</FileName>
     </TypeIdentifier>
   </Enum>

@@ -15,6 +15,6 @@ namespace HouseProfitCalculator
         Electrics,
         Plumber,
         Fascade,
-        Etc
+        Else
     }
 }

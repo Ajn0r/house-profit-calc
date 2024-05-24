@@ -146,14 +146,13 @@
                 
                 <!-- Scroll and listview with the receipts -->
                 <ScrollViewer Grid.Row="1" Grid.Column="0" Height="300" Width="400" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                    <ListView>
+                    <ListView Name="lstReceipts">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Date" Width="70"/>
-                                <GridViewColumn Header="Amount" Width="70"/>
-                                <GridViewColumn Header="Store" Width="100"/>
-                                <GridViewColumn Header="Category" Width="100"/>
-                                <GridViewColumn Header="Edit" Width="50"/>
+                                <GridViewColumn Header="Date" Width="70" DisplayMemberBinding="{Binding PurchaseDate}"/>
+                                <GridViewColumn Header="Amount" Width="70" DisplayMemberBinding="{Binding Amount}"/>
+                                <GridViewColumn Header="Store" Width="100" DisplayMemberBinding="{Binding Store}"/>
+                                <GridViewColumn Header="Category" Width="100" DisplayMemberBinding="{Binding Category}"/>
                             </GridView>
                         </ListView.View>
                     </ListView>

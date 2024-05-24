@@ -26,7 +26,7 @@
 
             <!-- Date of purchase -->
             <Label Grid.Row="0" Grid.Column="0" Content="Date of purchase:" FontWeight="Bold" Padding="3" Margin="5"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Name="txtPurchaseDate" Padding="3" Width="250" Margin="0 5"/>
+            <DatePicker Grid.Row="0" Grid.Column="1" SelectedDate="{Binding Date}" Name="dpDate" Padding="3"/>
 
             <!-- Amount -->
             <Label Grid.Row="1" Grid.Column="0" Content="Total amount:" FontWeight="Bold" Padding="3" Margin="5"/>

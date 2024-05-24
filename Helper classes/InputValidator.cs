@@ -114,5 +114,17 @@ namespace HouseProfitCalculator.Helper_classes
             // return true if the error list is empty, and false if it is not
             return errorList.Count == 0;
         }
+
+        public static bool ValidateReceiptInput(string amount, string store, string? category, ref List<string> errors)
+        {
+            if (!IsDoubleValid(amount))
+                errors.Add("The amount field must be a number greater than or equal to 0");
+            if (!IsStringValid(store))
+                errors.Add("The store field cannot be empty");
+            if (category == null)
+                errors.Add("The category field cannot be empty, select 'Else' or create a new if no category match");
+
+            return errors.Count == 0;
+        }
     }
 }

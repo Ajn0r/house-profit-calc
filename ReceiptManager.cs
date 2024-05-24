@@ -9,9 +9,20 @@ namespace HouseProfitCalculator
     {
         private List<Receipt> receipts;
 
+        public List<Receipt> Receipts
+        {
+            get { return receipts; }
+        }
         public ReceiptManager()
         {
-            throw new System.NotImplementedException();
+            receipts = new List<Receipt>();
+        }
+        public void AddReceipt(Receipt receipt)
+        {
+            if (receipt != null)
+            {
+                receipts.Add(receipt);
+            }
         }
     }
 }
