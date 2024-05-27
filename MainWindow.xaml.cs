@@ -74,6 +74,7 @@ namespace HouseProfitCalculator
         public void UpdateGUI(House selectedHouse)
         {
             SetHouseInComboBox(selectedHouse);
+            receiptManager = selectedHouse.ReceiptManager;
             LoadReceipts();
         }
 
@@ -136,7 +137,6 @@ namespace HouseProfitCalculator
             MessageBox.Show("House added successfully");
             House newHouse = houseManager.LatestHouse;
             this.DataContext = newHouse;
-            receiptManager = newHouse.ReceiptManager;
             FillHouseComboBox();
             UpdateGUI(newHouse);
         }
@@ -157,22 +157,33 @@ namespace HouseProfitCalculator
             House selectedHouse = houseManager.Houses[cmbHouses.SelectedIndex];
             // Set the datacontext of the window to the selected house and update the GUI with the selected house
             this.DataContext = selectedHouse;
-            // Set the receipt manager of the selected house
-            receiptManager = selectedHouse.ReceiptManager;
             UpdateGUI(selectedHouse);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Method to handle when the EditHouseButton is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditHouseButton_Click(object sender, RoutedEventArgs e)
         {
             if (cmbHouses.SelectedIndex == -1)
             {
                 return;
             }
+            // Get the selected house from the combo box and open a new EditHouseWindow with the selected house
             House selectedHouse = houseManager.Houses[cmbHouses.SelectedIndex];
             EditHouseWindow editHouseWindow = new EditHouseWindow(houseManager, selectedHouse);
+            // subscribe to the Closed event of the EditHouseWindow
             editHouseWindow.Closed += EditHouseWindow_Closed;
             editHouseWindow.Show();
         }
+
+        /// <summary>
+        /// Method to act when the EditHouseWindow is closed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void EditHouseWindow_Closed(object sender, System.EventArgs e)
         {
             House selectedHouse = houseManager.Houses[cmbHouses.SelectedIndex];
@@ -180,6 +191,43 @@ namespace HouseProfitCalculator
             UpdateGUI(selectedHouse);
         }
 
+        /// <summary>
+        /// Method to handle when the DeleteHouseButton is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteHouseButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Check that a house is selected in the combo box
+            if (cmbHouses.SelectedIndex == -1)
+            {
+                return;
+            }
+            // Get the house
+            House selectedHouse = houseManager.Houses[cmbHouses.SelectedIndex];
+            // Display a message box to confirm the deletion of the house so the user doesn't delete a house by mistake
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this house?", "Delete house", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            { // remove the house if the result is ues
+                houseManager.RemoveHouse(selectedHouse);
+            }
+            // fill the house combo box and update the GUI
+            FillHouseComboBox();
+            if (houseManager.Houses.Count > 0)
+            {
+                // select the first house in the list as the selected house if the list is not empty and update the GUI
+                House newSelectedHouse = houseManager.Houses[0];
+                this.DataContext = newSelectedHouse;
+                UpdateGUI(newSelectedHouse);
+            }
+
+        }
+
+        /// <summary>
+        /// Method to handle when the AddNewReceipt button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddNewReceipt_Clicked(object sender, RoutedEventArgs e)
         {
             NewReceiptWindow newReceiptWindow = new NewReceiptWindow(categoryManager, receiptManager);
@@ -187,11 +235,19 @@ namespace HouseProfitCalculator
             newReceiptWindow.Show();
         }
 
+        /// <summary>
+        /// Method to act when the NewReceiptWindow is closed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NewReceiptWindow_Closed(object? sender, EventArgs e)
         {
             LoadReceipts();
         }
 
+        /// <summary>
+        /// Method to load the receipts into the listbox
+        /// </summary>
         private void LoadReceipts()
         {
             lstReceipts.Items.Clear();
@@ -201,6 +257,11 @@ namespace HouseProfitCalculator
             }
         }
 
+        /// <summary>
+        /// Method to handle when the ExportButton is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExportBtn_Clicked(object sender, RoutedEventArgs e)
         {
             // Get the selected house index from the combo box
@@ -214,12 +275,37 @@ namespace HouseProfitCalculator
             {
                 string filePath = saveFileDialog.FileName;
                 int selectedHouseIndex = cmbHouses.SelectedIndex;
-                //House selectedHouse = houseManager.Houses[cmbHouses.SelectedIndex];
                 houseManager.Serialize(selectedHouseIndex, filePath);
             }
-            
-            // Serialize the houseManager object to a JSON file
-            //houseManager.Serialize(selectedHouseIndex);
+        }
+
+        /// <summary>
+        /// Method to handle when the OpenFile button is clicked in the menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenFile_Click(object sender, RoutedEventArgs e)
+        {
+            // Create a new OpenFileDialog object and set the filter to JSON files
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "JSON files (*.json)|*.json";
+            if (openFileDialog.ShowDialog() == true)
+            { // if the user selects a file, check the file path and deserialize the file
+                string filePath = openFileDialog.FileName;
+                if (houseManager.Deserialize(filePath))
+                {
+                    FillHouseComboBox();
+                    UpdateGUI(houseManager.LatestHouse);
+                }
+                else
+                {
+                    MessageBox.Show("Could not open file, please try again with another file");
+                }
+            }
+        }
+
+        private void EditReceiptButton_Clicked(object sender, RoutedEventArgs e)
+        {
 
         }
     }

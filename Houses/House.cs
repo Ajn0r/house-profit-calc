@@ -93,7 +93,7 @@ namespace HouseProfitCalculator.Houses
         public ReceiptManager ReceiptManager
         {
             get { return receiptManager; }
-            private set { receiptManager = value; OnPropertyChanged(); }
+            set { receiptManager = value; OnPropertyChanged(); }
         }
 
         /// <summary>
