@@ -9,7 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="EditHouseWindow.xaml.cs">
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Houses\EditHouseWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

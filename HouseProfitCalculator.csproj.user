@@ -7,10 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="NewHouseWindow.xaml.cs">
+    <Compile Update="Houses\NewHouseWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="NewReceiptWindow.xaml.cs">
+    <Compile Update="Receipts\NewReceiptWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -18,13 +18,13 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="EditHouseWindow.xaml">
+    <Page Update="Houses\EditHouseWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="NewHouseWindow.xaml">
+    <Page Update="Houses\NewHouseWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="NewReceiptWindow.xaml">
+    <Page Update="Receipts\NewReceiptWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

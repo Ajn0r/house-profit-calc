@@ -8,6 +8,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HouseProfitCalculator.Houses;
+using HouseProfitCalculator.Receipts;
+using Microsoft.Win32;
 
 namespace HouseProfitCalculator
 {
@@ -25,9 +28,16 @@ namespace HouseProfitCalculator
         {
             InitializeComponent();
             houseManager = new HouseManager();
-            receiptManager = new ReceiptManager();
+            //receiptManager = new ReceiptManager();
             categoryManager = new CategoryManager();
             TestData();
+            // Set the data context of the window to the first house in the houseManager list and get the receiptManager from the house
+            if (houseManager.Houses.Count > 0 && houseManager.Houses[0] != null)
+            {
+                House house = houseManager.Houses[0];
+                this.DataContext = house;
+                receiptManager = house.ReceiptManager;
+            }
         }
 
         private void TestData()
@@ -63,8 +73,8 @@ namespace HouseProfitCalculator
 
         public void UpdateGUI(House selectedHouse)
         {
-            FillHouseComboBox();
             SetHouseInComboBox(selectedHouse);
+            LoadReceipts();
         }
 
         /// <summary>
@@ -113,15 +123,21 @@ namespace HouseProfitCalculator
         /// <param name="e"></param>
         private void NewHouseWindow_Closed(object sender, System.EventArgs e)
         {
+            // Cast the sender to a NewHouseWindow object to get the HouseAdded property 
+            NewHouseWindow newHouseWindow = (NewHouseWindow)sender;
             // check if the house was added successfully
-            if (houseManager.LatestHouse == null)
+            if (!newHouseWindow.HouseAdded)
             {
+                MessageBox.Show("House not added");
                 return;
-            }
+            } 
+
             // Display a message when the NewHouseWindow is closed
             MessageBox.Show("House added successfully");
             House newHouse = houseManager.LatestHouse;
             this.DataContext = newHouse;
+            receiptManager = newHouse.ReceiptManager;
+            FillHouseComboBox();
             UpdateGUI(newHouse);
         }
 
@@ -141,7 +157,9 @@ namespace HouseProfitCalculator
             House selectedHouse = houseManager.Houses[cmbHouses.SelectedIndex];
             // Set the datacontext of the window to the selected house and update the GUI with the selected house
             this.DataContext = selectedHouse;
-            SetHouseInComboBox(selectedHouse);
+            // Set the receipt manager of the selected house
+            receiptManager = selectedHouse.ReceiptManager;
+            UpdateGUI(selectedHouse);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -171,11 +189,38 @@ namespace HouseProfitCalculator
 
         private void NewReceiptWindow_Closed(object? sender, EventArgs e)
         {
+            LoadReceipts();
+        }
+
+        private void LoadReceipts()
+        {
             lstReceipts.Items.Clear();
             foreach (Receipt receipt in receiptManager.Receipts)
             {
                 lstReceipts.Items.Add(receipt);
             }
+        }
+
+        private void ExportBtn_Clicked(object sender, RoutedEventArgs e)
+        {
+            // Get the selected house index from the combo box
+            if (cmbHouses.SelectedIndex == -1)
+            {
+                return;
+            }
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "JSON files (*.json)|*.json";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                string filePath = saveFileDialog.FileName;
+                int selectedHouseIndex = cmbHouses.SelectedIndex;
+                //House selectedHouse = houseManager.Houses[cmbHouses.SelectedIndex];
+                houseManager.Serialize(selectedHouseIndex, filePath);
+            }
+            
+            // Serialize the houseManager object to a JSON file
+            //houseManager.Serialize(selectedHouseIndex);
+
         }
     }
 }
