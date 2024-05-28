@@ -7,6 +7,11 @@ using System.Windows;
 
 namespace HouseProfitCalculator.Helper_classes
 {
+    /// <summary>
+    /// Class that contains methods to validate the input fields in the application
+    /// Taken from my previous project: WildlifeTracker, and modified to fit this project with custom validations for house and receipt objects
+    /// The method to display the error message is also refactored to fit this project, was in the manager classes in the previous project
+    /// </summary>
     public class InputValidator
     {
         /// <summary>
@@ -115,14 +120,19 @@ namespace HouseProfitCalculator.Helper_classes
             return errorList.Count == 0;
         }
 
-        public static bool ValidateReceiptInput(string amount, string store, string? category, ref List<string> errors)
+        /// <summary>
+        ///  Method to validate the input fields for the receipt in one single method, and add the errors to the error list
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <param name="store"></param>
+        /// <param name="errors"></param>
+        /// <returns></returns>
+        public static bool ValidateReceiptInput(string amount, string store, ref List<string> errors)
         {
             if (!IsDoubleValid(amount))
                 errors.Add("The amount field must be a number greater than or equal to 0");
             if (!IsStringValid(store))
                 errors.Add("The store field cannot be empty");
-            if (category == null)
-                errors.Add("The category field cannot be empty, select 'Else' or create a new if no category match");
 
             return errors.Count == 0;
         }

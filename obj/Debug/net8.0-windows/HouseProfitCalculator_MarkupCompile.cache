@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\App.xaml
-41792936546
+5-287058870
 
-15-86734252
+16402328610
 1991116466038
-Houses\EditHouseWindow.xaml;Houses\NewHouseWindow.xaml;MainWindow.xaml;Receipts\NewReceiptWindow.xaml;
+Houses\EditHouseWindow.xaml;Houses\NewHouseWindow.xaml;MainWindow.xaml;Receipts\EditReceiptWindow.xaml;Receipts\NewReceiptWindow.xaml;
 
 False
 

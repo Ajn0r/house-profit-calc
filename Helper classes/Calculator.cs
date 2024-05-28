@@ -8,24 +8,47 @@ namespace HouseProfitCalculator
 {
     public class Calculator
     {
-        public double CalcutaleFinalTax()
+        private double profit;
+        private double spendings;
+
+        public void CalculateValues(double purchasePrice, double askingPrice, double closingCost, List<Receipt> receipts)
         {
-            throw new System.NotImplementedException();
+            profit = askingPrice - (purchasePrice + closingCost);
+            spendings = SumAllReceipts(receipts);
         }
 
-        public void CalculateProfit(double purchasePrice, double AskingPrice)
+        public double CalculateTax()
         {
-            throw new System.NotImplementedException();
+            double netProfit = profit - spendings;
+            if (netProfit * 0.22 < 0)
+                return 0;
+            return netProfit * 0.22;
         }
 
-        public double SumAllReceipts(List<Receipt> receipts)
+        public double CalculateProfit()
         {
-            throw new System.NotImplementedException();
+            return profit - spendings;
         }
 
         public double CalculateSpendings()
         {
-            throw new System.NotImplementedException();
+            return spendings;
+        }
+
+        public double CalculateNetProfit()
+        {
+            double tax = CalculateTax();
+            return profit - spendings - tax;
+        }
+
+        private double SumAllReceipts(List<Receipt> receipts)
+        {
+            double totalSpendings = 0;
+            foreach (var receipt in receipts)
+            {
+                totalSpendings += receipt.Amount;
+            }
+            return totalSpendings;
         }
     }
 }

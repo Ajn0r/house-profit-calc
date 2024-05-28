@@ -10,6 +10,9 @@
     <Compile Update="Houses\NewHouseWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Receipts\EditReceiptWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Receipts\NewReceiptWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,6 +25,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Houses\NewHouseWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Receipts\EditReceiptWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Receipts\NewReceiptWindow.xaml">

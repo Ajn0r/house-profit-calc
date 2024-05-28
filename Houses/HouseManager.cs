@@ -21,14 +21,6 @@ namespace HouseProfitCalculator.Houses
             houses = new List<House>();
         }
 
-        public Calculator Calculator
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public List<House> Houses
         {
             get => houses;
@@ -40,7 +32,7 @@ namespace HouseProfitCalculator.Houses
         public House LatestHouse { get; private set; }
 
         /// <summary>
-        /// Method to serialize a house to a json file
+        /// Method to serialize a house to a json file, the solution is very much inspired from the WildlifeTracker project
         /// </summary>
         /// <param name="index"></param>
         /// <param name="fileName"></param>
@@ -65,7 +57,7 @@ namespace HouseProfitCalculator.Houses
         }
 
         /// <summary>
-        /// Method to deserialize a house from a json file
+        /// Method to deserialize a house from a json file, the solution is very much inspired from the WildlifeTracker project
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>

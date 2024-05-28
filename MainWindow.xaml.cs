@@ -269,10 +269,11 @@ namespace HouseProfitCalculator
             {
                 return;
             }
+            // Creates a new SaveFileDialog object and sets the filter to JSON files only
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "JSON files (*.json)|*.json";
             if (saveFileDialog.ShowDialog() == true)
-            {
+            { // if the user selects a file, get the file path and serialize the selected house
                 string filePath = saveFileDialog.FileName;
                 int selectedHouseIndex = cmbHouses.SelectedIndex;
                 houseManager.Serialize(selectedHouseIndex, filePath);
@@ -306,6 +307,51 @@ namespace HouseProfitCalculator
 
         private void EditReceiptButton_Clicked(object sender, RoutedEventArgs e)
         {
+            // check that a receipt is selected, if not show a message box
+            if (lstReceipts.SelectedIndex == -1)
+            {
+                MessageBox.Show("You need to select a receipt to edit");
+                return;
+            }
+            // Get the selected receipt and open a new EditReceiptWindow with the selected receipt
+            Receipt selectedReceipt = receiptManager.Receipts[lstReceipts.SelectedIndex];
+            EditReceiptWindow editReceiptWindow = new EditReceiptWindow(selectedReceipt, categoryManager, receiptManager);
+            editReceiptWindow.Closed += EditReceiptWindow_Closed;
+            editReceiptWindow.Show();
+        }
+
+        /// <summary>
+        /// Method to handle when the EditReceiptWindow is closed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditReceiptWindow_Closed(object sender, System.EventArgs e)
+        {
+            LoadReceipts();
+        }
+
+        private void DeleteReceiptButton_Click(object sender, RoutedEventArgs e)
+        {
+            // check that a receipt is selected, if not show a message box
+            if (lstReceipts.SelectedIndex == -1)
+            {
+                MessageBox.Show("You need to select a receipt to delete first");
+                return;
+            }
+            // Get the selected receipt and display a message box to confirm the deletion
+            Receipt selectedReceipt = receiptManager.Receipts[lstReceipts.SelectedIndex];
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this receipt?", "Delete receipt", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            { // remove the receipt if the result is yes
+                if (receiptManager.RemoveReceipt(selectedReceipt))
+                {
+                    MessageBox.Show("Receipt deleted successfully");
+                    LoadReceipts();
+                } else
+                {
+                    MessageBox.Show("Could not delete receipt, please try again");
+                }
+            }
 
         }
     }

@@ -47,11 +47,13 @@ namespace HouseProfitCalculator
             List<string> errors = new List<string>();
             Receipt receipt = new Receipt();
 
-            // Validate all fields
-            if (!InputValidator.ValidateReceiptInput(txtAmount.Text, txtStore.Text, cmbCategory.SelectedItem.ToString(), ref errors))
+            // Validate all fields, check that a date and category is selected as well
+            if (!InputValidator.ValidateReceiptInput(txtAmount.Text, txtStore.Text, ref errors) || dpDate.SelectedDate == null || cmbCategory.SelectedItem == null)
             {
                 if (dpDate.SelectedDate == null)
                     errors.Add("You need to select a date");
+                if (cmbCategory.SelectedItem == null)
+                    errors.Add("The category field cannot be empty, select 'Else' or create a new if no category match");
                 InputValidator.DisplayErrorMessage(ref errors, "receipt");
                 return;
             } 

@@ -24,12 +24,16 @@ namespace HouseProfitCalculator.Houses
         private double askingPrice;
         private double closingCost;
         private ReceiptManager receiptManager;
+        private Calculator calculator;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public House()
         {
             receiptManager = new ReceiptManager();
+            calculator = new Calculator();
+            receiptManager.ReceiptAdded += OnReceiptChange;
+            receiptManager.ReceiptRemoved += OnReceiptChange;
         }
 
         public House(string name, string address, double purchasePrice, double askingPrice, double closingCost)
@@ -40,6 +44,9 @@ namespace HouseProfitCalculator.Houses
             AskingPrice = askingPrice;
             ClosingCost = closingCost;
             receiptManager = new ReceiptManager();
+            calculator = new Calculator();
+            receiptManager.ReceiptAdded += OnReceiptChange;
+            receiptManager.ReceiptRemoved += OnReceiptChange;
         }
 
         public string Name
@@ -72,13 +79,58 @@ namespace HouseProfitCalculator.Houses
             set { closingCost = value; OnPropertyChanged(); }
         }
 
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        private void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+        private void OnReceiptChange(object sender, EventArgs args)
+        {
+            OnPropertyChanged(nameof(Spendings));
+            OnPropertyChanged(nameof(Profit));
+            OnPropertyChanged(nameof(Tax));
+            OnPropertyChanged(nameof(NetProfit));
+        }
 
-        public double Profit { get; set; }
-        public double FinalTax { get; set; }
+        public double Profit
+        {
+            get
+            {
+                CalculateValues();
+                return calculator.CalculateProfit();
+            }
+        }
+
+        public double Tax
+        {
+            get
+            {
+                CalculateValues();
+                return calculator.CalculateTax();
+            }
+        }
+
+        public double Spendings
+        {
+            get
+            {
+                CalculateValues();
+                return calculator.CalculateSpendings();
+            }
+        }
+
+        public double NetProfit
+        {
+            get
+            {
+                CalculateValues();
+                return calculator.CalculateNetProfit();
+            }
+        }
+
+        private void CalculateValues()
+        {
+            calculator.CalculateValues(PurchasePrice, AskingPrice, ClosingCost, Receipts);
+        }
 
         public override string ToString()
         {
@@ -89,11 +141,23 @@ namespace HouseProfitCalculator.Houses
         /// Method to get the receiptmanager for each house object to be able to add receipts to the receiptmanager list connected to the house object
         /// Is ignored in the serialization process, uses the Receipts property below instead
         /// </summary>
-        [JsonIgnore]
+        ///         [JsonIgnore]
         public ReceiptManager ReceiptManager
         {
             get { return receiptManager; }
-            set { receiptManager = value; OnPropertyChanged(); }
+            set
+            {
+                if (receiptManager != null)
+                {
+                    receiptManager.ReceiptAdded -= OnReceiptChange;
+                }
+                receiptManager = value;
+                if (receiptManager != null)
+                {
+                    receiptManager.ReceiptAdded += OnReceiptChange;
+                }
+                OnPropertyChanged();
+            }
         }
 
         /// <summary>

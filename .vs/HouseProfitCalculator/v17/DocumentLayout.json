@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|c:\\users\\\u00E4gare\\onedrive\\skrivbord\\skola\\c#\\kod\\houseprofitcalculator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|c:\\users\\\u00E4gare\\onedrive\\skrivbord\\skola\\c#\\kod\\houseprofitcalculator\\houses\\house.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|solutionrelative:houses\\house.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|c:\\users\\\u00E4gare\\onedrive\\skrivbord\\skola\\c#\\kod\\houseprofitcalculator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|c:\\users\\\u00E4gare\\onedrive\\skrivbord\\skola\\c#\\kod\\houseprofitcalculator\\houses\\housemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|solutionrelative:houses\\housemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|c:\\users\\\u00E4gare\\onedrive\\skrivbord\\skola\\c#\\kod\\houseprofitcalculator\\helper classes\\calculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|solutionrelative:helper classes\\calculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|c:\\users\\\u00E4gare\\onedrive\\skrivbord\\skola\\c#\\kod\\houseprofitcalculator\\receipts\\receiptmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,11 +23,12 @@
       "RelativeMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|solutionrelative:receipts\\receipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\ny.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|c:\\users\\\u00E4gare\\onedrive\\skrivbord\\skola\\c#\\kod\\houseprofitcalculator\\receipts\\editreceiptwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|solutionrelative:receipts\\editreceiptwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|c:\\users\\\u00E4gare\\onedrive\\skrivbord\\skola\\c#\\kod\\houseprofitcalculator\\houses\\house.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|solutionrelative:houses\\house.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|c:\\users\\\u00E4gare\\onedrive\\skrivbord\\skola\\c#\\kod\\houseprofitcalculator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{282C5E16-FF8F-4D0E-AAE1-165390E1F10F}|HouseProfitCalculator.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,14 +51,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ny.json",
-              "DocumentMoniker": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\ny.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\ny.json",
-              "ToolTip": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\ny.json",
-              "RelativeToolTip": "..\\..\\..\\..\\ny.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-27T15:32:24.403Z",
+              "Title": "EditReceiptWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\Receipts\\EditReceiptWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Receipts\\EditReceiptWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\Receipts\\EditReceiptWindow.xaml.cs",
+              "RelativeToolTip": "Receipts\\EditReceiptWindow.xaml.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAcwCQAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:20:03.894Z",
               "EditorCaption": ""
             },
             {
@@ -68,33 +69,33 @@
               "RelativeDocumentMoniker": "Receipts\\ReceiptManager.cs",
               "ToolTip": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\Receipts\\ReceiptManager.cs",
               "RelativeToolTip": "Receipts\\ReceiptManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAIAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAkwDQAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T15:14:03.502Z",
+              "WhenOpened": "2024-05-28T12:30:17.193Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HouseManager.cs",
-              "DocumentMoniker": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\Houses\\HouseManager.cs",
-              "RelativeDocumentMoniker": "Houses\\HouseManager.cs",
-              "ToolTip": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\Houses\\HouseManager.cs",
-              "RelativeToolTip": "Houses\\HouseManager.cs",
-              "ViewState": "AQIAAH4AAAAAAAAAAAAUwI4AAAAAAAAA",
+              "Title": "Calculator.cs",
+              "DocumentMoniker": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\Helper classes\\Calculator.cs",
+              "RelativeDocumentMoniker": "Helper classes\\Calculator.cs",
+              "ToolTip": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\Helper classes\\Calculator.cs",
+              "RelativeToolTip": "Helper classes\\Calculator.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAmwCgAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T13:14:07.725Z",
+              "WhenOpened": "2024-05-28T12:07:01.301Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "House.cs",
               "DocumentMoniker": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\Houses\\House.cs",
               "RelativeDocumentMoniker": "Houses\\House.cs",
               "ToolTip": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\Houses\\House.cs",
               "RelativeToolTip": "Houses\\House.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAIAAAA",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAYwFoAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-27T10:46:56.641Z",
               "EditorCaption": ""
@@ -107,20 +108,20 @@
               "RelativeDocumentMoniker": "Receipts\\Receipt.cs",
               "ToolTip": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\Receipts\\Receipt.cs",
               "RelativeToolTip": "Receipts\\Receipt.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABMAAAAkAAAA",
+              "ViewState": "AQIAACAAAAAAAAAAAAAwwBMAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-24T18:41:15.74Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\\u00C4GARE\\OneDrive\\Skrivbord\\Skola\\C#\\Kod\\HouseProfitCalculator\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAABABAAAAAAAAAAAiwCsBAAAeAAAA",
+              "ViewState": "AQIAAC0BAAAAAAAAAAAUwD0BAAB4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-24T11:38:09.257Z",
               "EditorCaption": ""

@@ -28,3 +28,5 @@ C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\obj\Debug\
 C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\obj\Debug\net8.0-windows\Houses\NewHouseWindow.baml
 C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\obj\Debug\net8.0-windows\Receipts\NewReceiptWindow.baml
 C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\obj\Debug\net8.0-windows\HousePro.F1146057.Up2Date
+C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\obj\Debug\net8.0-windows\Receipts\EditReceiptWindow.g.cs
+C:\Users\ÄGARE\OneDrive\Skrivbord\Skola\C#\Kod\HouseProfitCalculator\obj\Debug\net8.0-windows\Receipts\EditReceiptWindow.baml
