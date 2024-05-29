@@ -83,6 +83,12 @@ namespace HouseProfitCalculator.Houses
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        /// <summary>
+        /// Event handler for when a receipt is added, changed or removed from the receiptManager list, updates the properties for the house object
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnReceiptChange(object sender, EventArgs args)
         {
             OnPropertyChanged(nameof(Spendings));
@@ -127,6 +133,10 @@ namespace HouseProfitCalculator.Houses
             }
         }
 
+
+        /// <summary>
+        /// Method to calculate the values for the house object, sends the values to the calculator object to calculate the profit, tax, spendings and net profit
+        /// </summary>
         private void CalculateValues()
         {
             calculator.CalculateValues(PurchasePrice, AskingPrice, ClosingCost, Receipts);
@@ -141,17 +151,19 @@ namespace HouseProfitCalculator.Houses
         /// Method to get the receiptmanager for each house object to be able to add receipts to the receiptmanager list connected to the house object
         /// Is ignored in the serialization process, uses the Receipts property below instead
         /// </summary>
-        ///         [JsonIgnore]
+        [JsonIgnore]
         public ReceiptManager ReceiptManager
         {
             get { return receiptManager; }
             set
             {
+                // Unsubscribe from the old receiptManager events in case it is not null before setting the new value
                 if (receiptManager != null)
                 {
                     receiptManager.ReceiptAdded -= OnReceiptChange;
                 }
-                receiptManager = value;
+                receiptManager = value; // set the new receiptManager value
+                // Subscribe to the new receiptManager events
                 if (receiptManager != null)
                 {
                     receiptManager.ReceiptAdded += OnReceiptChange;

@@ -13,8 +13,8 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open" Click="OpenFile_Click"/>
-                <MenuItem Header="_Save"/>
-                <MenuItem Header="_Exit"/>
+                <MenuItem Header="_Save" Click="SaveFile_Click"/>
+                <MenuItem Header="_Exit" Click="Exit_Click"/>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_About"/>
@@ -93,8 +93,8 @@
         
                 <!-- Edit button -->
                 <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="0 10 0 0"  VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Button Content="Edit" Width="100" Padding="3" Margin="0 0 15 0" Click="EditHouseButton_Click"/>
-                    <Button Content="Delete" Width="100" Padding="3" Click="DeleteHouseButton_Click"/>
+                    <Button Name="editHouseBtn" Content="Edit" Width="100" Padding="3" Margin="0 0 15 0" Click="EditHouseButton_Click"/>
+                    <Button Name="deleteHouseBtn" Content="Delete" Width="100" Padding="3" Click="DeleteHouseButton_Click"/>
                 </StackPanel>
                 
                 <!-- Header for calculations -->
@@ -139,12 +139,8 @@
                 </Grid.RowDefinitions>
                 
                 <!-- Filter receipt -->
-                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="0 0 0 10">
                     <TextBlock Text="Receipts" FontWeight="Bold" FontSize="16" Padding="3"/>
-                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBlock Text="Filter by:" VerticalAlignment="Center"/>
-                        <ComboBox  Width="345" Padding="3" Margin="10 0 0 0"/>
-                    </StackPanel>
                 </StackPanel>
                 
                 <!-- Scroll and listview with the receipts -->
@@ -152,10 +148,18 @@
                     <ListView Name="lstReceipts">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Date" Width="70" DisplayMemberBinding="{Binding PurchaseDate}"/>
-                                <GridViewColumn Header="Amount" Width="70" DisplayMemberBinding="{Binding Amount}"/>
-                                <GridViewColumn Header="Store" Width="130" DisplayMemberBinding="{Binding Store}"/>
-                                <GridViewColumn Header="Category" Width="120" DisplayMemberBinding="{Binding Category}"/>
+                                <GridViewColumn Width="70" DisplayMemberBinding="{Binding PurchaseDate}" >
+                                    <GridViewColumnHeader Content="Date" Click="SortByColumnHeader_Click" Tag="Date" />
+                                </GridViewColumn>
+                                <GridViewColumn Width="70" DisplayMemberBinding="{Binding Amount}">
+                                    <GridViewColumnHeader Content="Amount" Click="SortByColumnHeader_Click" Tag="Amount" />
+                                </GridViewColumn>
+                                <GridViewColumn Width="130" DisplayMemberBinding="{Binding Store}">
+                                    <GridViewColumnHeader Content="Store" Click="SortByColumnHeader_Click" Tag="Store" />
+                                </GridViewColumn>
+                                <GridViewColumn Width="120" DisplayMemberBinding="{Binding Category}">
+                                    <GridViewColumnHeader Content="Category" Click="SortByColumnHeader_Click" Tag="Category" />
+                                </GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -163,10 +167,10 @@
                 
                 <!-- Add new receipt, edit and export button -->
                 <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Center">
-                    <Button Content="Add new" Width="85" Margin="0 0 10 0" Padding="3" Click="AddNewReceipt_Clicked"/>
-                    <Button Content="Edit" Width="85" Padding="3" Click="EditReceiptButton_Clicked"/>
-                    <Button Content="Delete"  Width="85" Margin="10 0 0 0" Padding="3" Click="DeleteReceiptButton_Click" />
-                    <Button Content="Export" Width="85" Margin="10 0 0 0" Padding="3" Click="ExportBtn_Clicked"/>  
+                    <Button Name="newReceiptBtn" Content="Add new" Width="85" Margin="0 0 10 0" Padding="3" Click="AddNewReceipt_Clicked"/>
+                    <Button Name="editReceiptBtn" Content="Edit" Width="85" Padding="3" Click="EditReceiptButton_Clicked"/>
+                    <Button Name="deleteReceiptBtn" Content="Delete"  Width="85" Margin="10 0 0 0" Padding="3" Click="DeleteReceiptButton_Click" />
+                    <Button Name="exportBtn" Content="Export" Width="85" Margin="10 0 0 0" Padding="3" Click="ExportBtn_Clicked"/>  
                 </StackPanel>
             </Grid>
         </Grid>

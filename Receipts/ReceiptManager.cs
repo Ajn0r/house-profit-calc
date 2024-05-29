@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HouseProfitCalculator.Helper_classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,10 @@ namespace HouseProfitCalculator.Receipts
         public event EventHandler ReceiptAdded;
         public event EventHandler ReceiptRemoved;
 
+        /// <summary>
+        /// Method to add a receipt to the list of receipts
+        /// </summary>
+        /// <param name="receipt"></param>
         public void AddReceipt(Receipt receipt)
         {
             if (receipt != null)
@@ -45,6 +50,11 @@ namespace HouseProfitCalculator.Receipts
             return false;
         }
 
+        /// <summary>
+        /// Method to update a receipt in the list of receipts
+        /// </summary>
+        /// <param name="oldReceipt"></param>
+        /// <param name="newReceipt"></param>
         public void UpdateReceipt(Receipt oldReceipt, Receipt newReceipt)
         {
             if (receipts.Contains(oldReceipt))
@@ -53,6 +63,24 @@ namespace HouseProfitCalculator.Receipts
                 receipts[index] = newReceipt;
                 ReceiptAdded?.Invoke(this, EventArgs.Empty);
             }
+        }
+
+        /// <summary>
+        /// Method to sort the list of receipts in descending order
+        /// </summary>
+        /// <param name="sortBy"></param>
+        internal void SortListDesc(string sortBy)
+        {
+            receipts.Sort(new ReceiptComparer(sortBy, descending: true));
+        }
+
+        /// <summary>
+        /// Method to sort the list of receipts in ascending order
+        /// </summary>
+        /// <param name="sortBy"></param>
+        internal void SortListAsc(string sortBy)
+        {
+            receipts.Sort(new ReceiptComparer(sortBy, descending: false));
         }
     }
 }

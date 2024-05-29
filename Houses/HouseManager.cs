@@ -46,7 +46,6 @@ namespace HouseProfitCalculator.Houses
                 try
                 {
                    string jsonString = JsonConvert.SerializeObject(house);
-                   MessageBox.Show(jsonString);
                    File.WriteAllText(fileName, jsonString);
                 } catch (Exception e)
                 {

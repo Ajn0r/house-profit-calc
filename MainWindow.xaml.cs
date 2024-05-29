@@ -24,13 +24,16 @@ namespace HouseProfitCalculator
         private CategoryManager categoryManager;
         private ReceiptManager receiptManager;
 
+        // A Dictionary to keep track of the click count for each column header
+        Dictionary<string, int> clickCountDict = new Dictionary<string, int>();
+
+
         public MainWindow()
         {
             InitializeComponent();
             houseManager = new HouseManager();
             //receiptManager = new ReceiptManager();
             categoryManager = new CategoryManager();
-            TestData();
             // Set the data context of the window to the first house in the houseManager list and get the receiptManager from the house
             if (houseManager.Houses.Count > 0 && houseManager.Houses[0] != null)
             {
@@ -38,44 +41,43 @@ namespace HouseProfitCalculator
                 this.DataContext = house;
                 receiptManager = house.ReceiptManager;
             }
+            SetButtonDisabled();
         }
 
-        private void TestData()
+        /// <summary>
+        /// Method to set the buttons to disabled if there are no houses in the houseManager list
+        /// </summary>
+        private void SetButtonDisabled()
         {
-            House house1 = new House();
-            house1.Name = "Laxå";
-            house1.Address = "Magnus Erikssons väg 4";
-            house1.PurchasePrice = 475000;
-            house1.AskingPrice = 950000;
-            house1.ClosingCost = 60500;
-
-            House house2 = new House();
-            house2.Name = "Torved";
-            house2.Address = "Torveds gård 4";
-            house2.PurchasePrice = 830000;
-            house2.AskingPrice = 2450000;
-            house2.ClosingCost = 75000;
-
-            House house3 = new House();
-            house3.Name = "Hösbjör";
-            house3.Address = "Hösbjörsvägen 213";
-            house3.PurchasePrice = 1750000;
-            house3.AskingPrice = 2730000;
-            house3.ClosingCost = 56000;
-
-            houseManager.AddHouse(house1);
-            houseManager.AddHouse(house2);
-            houseManager.AddHouse(house3);
-
-            FillHouseComboBox();
-            SetHouseInComboBox(house1);
+            if (houseManager.Houses.Count == 0)
+            {
+                // Disable the buttons if there are no houses in the houseManager list
+                editHouseBtn.IsEnabled = false;
+                deleteHouseBtn.IsEnabled = false;
+                newReceiptBtn.IsEnabled = false;
+                editReceiptBtn.IsEnabled = false;
+                deleteReceiptBtn.IsEnabled = false;
+                exportBtn.IsEnabled = false;
+            }
+            else
+            {
+                // Enable the buttons if there are houses in the houseManager list
+                editHouseBtn.IsEnabled = true;
+                deleteHouseBtn.IsEnabled = true;
+                newReceiptBtn.IsEnabled = true;
+                editReceiptBtn.IsEnabled = true;
+                deleteReceiptBtn.IsEnabled = true;
+                exportBtn.IsEnabled = true;
+            }
         }
+
 
         public void UpdateGUI(House selectedHouse)
         {
             SetHouseInComboBox(selectedHouse);
             receiptManager = selectedHouse.ReceiptManager;
             LoadReceipts();
+            SetButtonDisabled();
         }
 
         /// <summary>
@@ -220,7 +222,6 @@ namespace HouseProfitCalculator
                 this.DataContext = newSelectedHouse;
                 UpdateGUI(newSelectedHouse);
             }
-
         }
 
         /// <summary>
@@ -269,6 +270,11 @@ namespace HouseProfitCalculator
             {
                 return;
             }
+            SaveFile();
+        }
+
+        private void SaveFile()
+        {
             // Creates a new SaveFileDialog object and sets the filter to JSON files only
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "JSON files (*.json)|*.json";
@@ -305,6 +311,11 @@ namespace HouseProfitCalculator
             }
         }
 
+        /// <summary>
+        /// Method to handle when the EditReceiptButton is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditReceiptButton_Clicked(object sender, RoutedEventArgs e)
         {
             // check that a receipt is selected, if not show a message box
@@ -330,6 +341,11 @@ namespace HouseProfitCalculator
             LoadReceipts();
         }
 
+        /// <summary>
+        /// Method to handle when the DeleteReceiptButton is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteReceiptButton_Click(object sender, RoutedEventArgs e)
         {
             // check that a receipt is selected, if not show a message box
@@ -352,7 +368,55 @@ namespace HouseProfitCalculator
                     MessageBox.Show("Could not delete receipt, please try again");
                 }
             }
+        }
 
+        /// <summary>
+        /// Method to handle when the SaveFile button is clicked in the menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveFile_Click(object sender, RoutedEventArgs e)
+        {
+            if (cmbHouses.SelectedIndex == -1)
+            {
+                MessageBox.Show("You need to select or create a house to save");
+                return;
+            }
+            SaveFile();
+        }
+
+        /// <summary>
+        /// Method to handle when the Exit button is clicked in the menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            // Ask the user if they want to exit the application
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to exit the application?", "Exit application", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            { // if the result is yes, close the application
+                Application.Current.Shutdown();
+            }
+        }
+
+        private void SortByColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the coloumn header that was clicked
+            GridViewColumnHeader column = (sender as GridViewColumnHeader); // sender is the column header that was clicked and cast it to a GridViewColumnHeader
+            string sortBy = column.Content.ToString(); // Get the tag of the column header
+            // Check if the click count dictionary contains the property name
+            if (!clickCountDict.ContainsKey(sortBy))
+                clickCountDict.Add(sortBy, 0); // If not, add the property name to the dictionary with a click count of 0
+            int clickCount = clickCountDict[sortBy]; // Get the click count from the dictionary based on the property name and store it in a variable
+            clickCount++; // Increment the click count
+            clickCountDict[sortBy] = clickCount; // Set the click count in the dictionary to the new click count
+            if (clickCount % 2 == 0) // If the click count is even, sort the list in descending order
+                receiptManager.SortListDesc(sortBy); 
+            else // If the click count is odd, sort the list in ascending order
+                receiptManager.SortListAsc(sortBy);
+             // Update the list view with the sorted list of receipts
+             LoadReceipts();
         }
     }
 }
